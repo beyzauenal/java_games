@@ -17,7 +17,7 @@ public class Rectangles extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.x = 100;
-        this.y = 100; // y wird nun auch initialisiert
+        this.y = 100;
     }
 
     @Override
@@ -25,14 +25,14 @@ public class Rectangles extends BasicGame {
         this.x++;
         this.y++;
 
-        // Falls x oder y eine bestimmte Grenze überschreiten, zurücksetzen
+
         if (this.x > 700) this.x = 100;
         if (this.y > 500) this.y = 100;
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-        graphics.drawRect(this.x, this.y, 100, 100); // Korrekte Parameter
+        graphics.drawRect(this.x, this.y, 100, 100);
         graphics.drawString("Hello you", 50, 50);
     }
 
