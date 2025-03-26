@@ -7,8 +7,9 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 public class Rectangles extends BasicGame {
-    private int x;
-    private int y;
+    private float x;
+    private float y;
+    private float speed;
 
     public Rectangles(String title) {
         super(title);
@@ -18,16 +19,12 @@ public class Rectangles extends BasicGame {
     public void init(GameContainer gameContainer) throws SlickException {
         this.x = 100;
         this.y = 100;
+        this.speed = 50.0f;
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        this.x++;
-        this.y++;
-
-
-        if (this.x > 700) this.x = 100;
-        if (this.y > 500) this.y = 100;
+        this.x += (float) delta / 1000 * this.speed;
     }
 
     @Override
@@ -46,6 +43,5 @@ public class Rectangles extends BasicGame {
         }
     }
 }
-
 
 
