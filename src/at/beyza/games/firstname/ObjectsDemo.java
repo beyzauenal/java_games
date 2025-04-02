@@ -2,23 +2,45 @@ package at.beyza.games.firstname;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class ObjectsDemo extends JPanel implements ActionListener {
-
+public class ObjectsDemo extends JPanel {
     private int rectX = 50, rectY = 50;
-    private int circleX = 150, circleY = 150;
-    private int ovalX = 250, ovalY = 100;
+    private int circleX = 200, circleY = 50;
+    private int ovalX = 350, ovalY = 50;
 
-    private int rectDX = 2, rectDY = 2;
-    private int circleDX = 3, circleDY = 3;
-    private int ovalDX = 4, ovalDY = 2;
-
-    Timer timer;
+    private final int rectSpeed = 2;
+    private final int circleSpeed = 3;
+    private final int ovalSpeedX = 2, ovalSpeedY = 1;
 
     public ObjectsDemo() {
-        timer = new Timer(20, this);
+        Timer timer = new Timer(16, e -> update());
         timer.start();
     }
 
+    private void update() {
+        rectX += rectSpeed;
+        circleY += circleSpeed;
+        ovalX += ovalSpeedX;
+        ovalY += ovalSpeedY;
+        repaint();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        setBackground(Color.BLACK);
+        g.setColor(Color.WHITE);
+        g.drawRect(rectX, rectY, 100, 100);
+        g.drawOval(circleX, circleY, 50, 50);
+        g.drawOval(ovalX, ovalY, 150, 80);
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Moving Objects");
+        ObjectsDemo panel = new ObjectsDemo();
+        frame.add(panel);
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
