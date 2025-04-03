@@ -15,6 +15,7 @@ public class ObjectsDemo extends JPanel {
     private int speedOvalX;
     private int speedOvalY;
 
+
     public ObjectsDemo() {
         this.rectX = 50;
         this.rectY = 50;
