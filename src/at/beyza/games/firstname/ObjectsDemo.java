@@ -4,35 +4,48 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ObjectsDemo extends JPanel {
-    private int rectX = 50, rectY = 50;
-    private int circleX = 200, circleY = 50;
-    private int ovalX = 350, ovalY = 50;
-
-    private final int rectSpeed = 2;
-    private final int circleSpeed = 3;
-    private final int ovalSpeedX = 2, ovalSpeedY = 1;
+    private int rectX;
+    private int rectY;
+    private int circleX;
+    private int circleY;
+    private int ovalX;
+    private int ovalY;
+    private int speedRectX;
+    private int speedCircleY;
+    private int speedOvalX;
+    private int speedOvalY;
 
     public ObjectsDemo() {
+        this.rectX = 50;
+        this.rectY = 50;
+        this.circleX = 200;
+        this.circleY = 50;
+        this.ovalX = 350;
+        this.ovalY = 50;
+        this.speedRectX = 2;
+        this.speedCircleY = 3;
+        this.speedOvalX = 2;
+        this.speedOvalY = 1;
         Timer timer = new Timer(16, e -> update());
         timer.start();
     }
 
     private void update() {
-        rectX += rectSpeed;
-        circleY += circleSpeed;
-        ovalX += ovalSpeedX;
-        ovalY += ovalSpeedY;
+        this.rectX += this.speedRectX;
+        this.circleY += this.speedCircleY;
+        this.ovalX += this.speedOvalX;
+        this.ovalY += this.speedOvalY;
         repaint();
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+    protected void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
         setBackground(Color.BLACK);
-        g.setColor(Color.WHITE);
-        g.drawRect(rectX, rectY, 100, 100);
-        g.drawOval(circleX, circleY, 50, 50);
-        g.drawOval(ovalX, ovalY, 150, 80);
+        graphics.setColor(Color.WHITE);
+        graphics.drawRect(this.rectX, this.rectY, 100, 100);
+        graphics.drawOval(this.circleX, this.circleY, 50, 50);
+        graphics.drawOval(this.ovalX, this.ovalY, 150, 80);
     }
 
     public static void main(String[] args) {
