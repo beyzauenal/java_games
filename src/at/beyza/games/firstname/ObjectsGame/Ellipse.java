@@ -2,21 +2,22 @@ package at.beyza.games.firstname.ObjectsGame;
 
 import org.newdawn.slick.Graphics;
 
-public class Circle implements Actor {
+public class Ellipse implements Actor {
     private float x, y;
     private float speed;
-    private float diameter;  // Neues Attribut für den Durchmesser
+    private float width, height;
 
-    public Circle(int x, int y, float diameter) {
+    public Ellipse(int x, int y, float width, float height) {
         this.x = x;
         this.y = y;
-        this.diameter = diameter;  // Initialisieren des Durchmessers
+        this.width = width;
+        this.height = height;
         this.speed = 5;
     }
 
     @Override
     public void render(Graphics graphics) {
-        graphics.drawOval(this.x, this.y, diameter, diameter); // Verwenden des Durchmessers
+        graphics.drawOval(this.x, this.y, width, height);
     }
 
     @Override

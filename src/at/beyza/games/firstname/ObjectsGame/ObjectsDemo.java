@@ -1,16 +1,12 @@
 package at.beyza.games.firstname.ObjectsGame;
 
 import org.newdawn.slick.*;
-import org.newdawn.slick.geom.Rectangle;
-
-import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class ObjectsDemo extends BasicGame {
-    private List<Rectangels> rectangles;
-    private List<Circle> circles;
+    private List<Actor> actors;
 
     public ObjectsDemo(String title) {
         super(title);
@@ -18,8 +14,7 @@ public class ObjectsDemo extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        this.rectangles = new ArrayList<>();
-        this.circles = new LinkedList<>();
+        this.actors = new ArrayList<>();
 
         Random random = new Random();
         for (int i = 0; i < 100; i++) {
@@ -28,31 +23,29 @@ public class ObjectsDemo extends BasicGame {
                     random.nextInt(600),
                     random.nextInt(50)
             );
-            rectangles.add(rectangle);
+            this.actors.add(rectangle);
         }
         for (int i = 0; i < 50; i++) {
-            Circle circle = new Circle();
-            this.circles.add(circle);
+            Circle circle = new Circle(random.nextInt(800), random.nextInt(600), 50);
+            this.actors.add(circle);
+        }
+        for (int i = 0; i < 5; i++) {
+            Ellipse ellipse = new Ellipse(random.nextInt(800), random.nextInt(600), 30, 20);
+            this.actors.add(ellipse);
         }
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        for (Rectangels rectangle : this.rectangles) {
-            rectangle.update(delta);
-        }
-        for (Circle circle : this.circles) {
-            circle.update(delta);
+        for (Actor actor : this.actors) {
+            actor.update(delta);
         }
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-        for (Rectangels rectangle : this.rectangles) {
-            rectangle.render(graphics);
-        }
-        for (Circle circle : this.circles) {
-            circle.render(graphics);
+        for (Actor actor : this.actors) {
+            actor.render(graphics);
         }
     }
 
