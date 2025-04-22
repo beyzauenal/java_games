@@ -5,11 +5,14 @@ import org.newdawn.slick.Graphics;
 public class Rectangels implements Actor {
     private float x, y;
     private float speed;
+    private boolean leftToRight;
 
-    public Rectangels(int x, int y, float speed) {
+
+    public Rectangels(int x, int y, float speed, boolean leftToRight) {
         this.x = x;
         this.y = y;
         this.speed = speed;
+        this.leftToRight = leftToRight;
     }
 
     @Override
@@ -22,6 +25,9 @@ public class Rectangels implements Actor {
         this.x += (float) delta / this.speed;
         if (this.x > 600) {
             this.x = 0;
+        }else {
+            this.x -= (float) delta / this.speed;
+            if (this.x < 0) this.x = 600;
         }
     }
 }

@@ -15,22 +15,38 @@ public class ObjectsDemo extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.actors = new ArrayList<>();
-
         Random random = new Random();
-        for (int i = 0; i < 100; i++) {
+
+
+        for (int i = 0; i < 10; i++) {
+            boolean leftToRight = i % 2 == 0;
             Rectangels rectangle = new Rectangels(
-                    random.nextInt(600),
-                    random.nextInt(600),
-                    random.nextInt(50)
+                    leftToRight ? 0 : 800,
+                    i * 50,
+                    4f + random.nextFloat() * 2f,
+                    leftToRight
             );
             this.actors.add(rectangle);
         }
-        for (int i = 0; i < 50; i++) {
-            Circle circle = new Circle(random.nextInt(800), random.nextInt(600), 50);
+
+
+        for (int i = 0; i < 10; i++) {
+            Circle circle = new Circle(
+                    0,
+                    i * 50,
+                    10f
+            );
             this.actors.add(circle);
         }
-        for (int i = 0; i < 5; i++) {
-            Ellipse ellipse = new Ellipse(random.nextInt(800), random.nextInt(600), 30, 20);
+
+
+        for (int i = 0; i < 10; i++) {
+            Ellipse ellipse = new Ellipse(
+                    -100f,
+                    i * 50,
+                    30f + random.nextFloat() * 20f,
+                    15f + random.nextFloat() * 10f
+            );
             this.actors.add(ellipse);
         }
     }
@@ -53,6 +69,7 @@ public class ObjectsDemo extends BasicGame {
         try {
             AppGameContainer container = new AppGameContainer(new ObjectsDemo("ObjectsDemo"));
             container.setDisplayMode(800, 600, false);
+            container.setTargetFrameRate(60);
             container.start();
         } catch (SlickException e) {
             e.printStackTrace();

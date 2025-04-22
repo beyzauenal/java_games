@@ -7,7 +7,7 @@ public class Ellipse implements Actor {
     private float speed;
     private float width, height;
 
-    public Ellipse(int x, int y, float width, float height) {
+    public Ellipse(float x, float y, float width, float height) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -24,5 +24,9 @@ public class Ellipse implements Actor {
     public void update(int delta) {
         this.x += (float) delta / this.speed;
         this.y += (float) delta / this.speed;
+
+        if (this.x > 600) {
+            this.x = -100;
+        }
     }
 }
