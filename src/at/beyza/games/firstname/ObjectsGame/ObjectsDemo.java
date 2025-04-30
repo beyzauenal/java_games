@@ -17,6 +17,7 @@ public class ObjectsDemo extends BasicGame {
         this.actors = new ArrayList<>();
         Random random = new Random();
 
+
         for (int i = 0; i < 10; i++) {
             boolean leftToRight = i % 2 == 0;
             Rectangels rectangle = new Rectangels(
@@ -29,25 +30,25 @@ public class ObjectsDemo extends BasicGame {
         }
 
 
-
         for (int i = 0; i < 10; i++) {
-            Circle circle = new Circle(
-                    0,
-                    i * 50,
-                    10f
-            );
+            Circle circle = new Circle(0, i * 50, 10f);
             this.actors.add(circle);
         }
 
+
         for (int i = 0; i < 10; i++) {
             Ellipse ellipse = new Ellipse(
-                    -100f,
-                    i * 50,
+                    -100f, i * 50,
                     30f + random.nextFloat() * 20f,
                     15f + random.nextFloat() * 10f
             );
             this.actors.add(ellipse);
         }
+
+
+        Image flowerImg = new Image("testdata/flower.png");
+        Flower flower = new Flower(flowerImg);
+        this.actors.add(flower);
     }
 
     @Override
