@@ -1,6 +1,6 @@
 package at.beyza.games.firstname.ObjectsGame;
 
-import org.newdawn.slick.Graphics;
+import org.newdawn.slick.*;
 
 public class Circle implements Actor {
     private float x, y;
@@ -20,7 +20,7 @@ public class Circle implements Actor {
     }
 
     @Override
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
         this.x += (float) delta / this.speed;
         this.y += (float) delta / this.speed;
 

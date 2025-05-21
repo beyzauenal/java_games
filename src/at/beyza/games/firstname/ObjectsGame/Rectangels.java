@@ -1,12 +1,12 @@
 package at.beyza.games.firstname.ObjectsGame;
 
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 public class Rectangels implements Actor {
     private float x, y;
     private float speed;
     private boolean leftToRight;
-
 
     public Rectangels(int x, int y, float speed, boolean leftToRight) {
         this.x = x;
@@ -21,11 +21,11 @@ public class Rectangels implements Actor {
     }
 
     @Override
-    public void update(int delta) {
-        this.x += (float) delta / this.speed;
-        if (this.x > 600) {
-            this.x = 0;
-        }else {
+    public void update(GameContainer gameContainer, int delta) {
+        if (leftToRight) {
+            this.x += (float) delta / this.speed;
+            if (this.x > 600) this.x = 0;
+        } else {
             this.x -= (float) delta / this.speed;
             if (this.x < 0) this.x = 600;
         }

@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class ObjectsDemo extends BasicGame {
     private List<Actor> actors;
+    private Flower flower;
 
     public ObjectsDemo(String title) {
         super(title);
@@ -17,6 +18,9 @@ public class ObjectsDemo extends BasicGame {
         this.actors = new ArrayList<>();
         Random random = new Random();
 
+        Image flowerImg = new Image("testdata/flower.png");
+        this.flower = new Flower(flowerImg);
+        this.actors.add(flower);
 
         for (int i = 0; i < 10; i++) {
             boolean leftToRight = i % 2 == 0;
@@ -29,12 +33,10 @@ public class ObjectsDemo extends BasicGame {
             this.actors.add(rectangle);
         }
 
-
         for (int i = 0; i < 10; i++) {
             Circle circle = new Circle(0, i * 50, 10f);
             this.actors.add(circle);
         }
-
 
         for (int i = 0; i < 10; i++) {
             Ellipse ellipse = new Ellipse(
@@ -44,17 +46,12 @@ public class ObjectsDemo extends BasicGame {
             );
             this.actors.add(ellipse);
         }
-
-
-        Image flowerImg = new Image("testdata/flower.png");
-        Flower flower = new Flower(flowerImg);
-        this.actors.add(flower);
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
         for (Actor actor : this.actors) {
-            actor.update(delta);
+            actor.update(gameContainer, delta);
         }
     }
 
@@ -62,6 +59,14 @@ public class ObjectsDemo extends BasicGame {
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
         for (Actor actor : this.actors) {
             actor.render(graphics);
+        }
+    }
+
+    @Override
+    public void keyPressed(int key, char c) {
+        if (key == Input.KEY_SPACE) {
+            Cannonball cb = new Cannonball(this.flower.getX(), this.flower.getY());
+            this.actors.add(cb);
         }
     }
 
@@ -76,4 +81,5 @@ public class ObjectsDemo extends BasicGame {
         }
     }
 }
+
 
