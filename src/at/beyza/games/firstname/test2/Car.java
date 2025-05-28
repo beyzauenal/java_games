@@ -7,7 +7,16 @@ public class Car implements Product{
     }
 
     @Override
+    public int getPrice() {
+        return 20;
+    }
+
+    @Override
     public String getTitle() {
         return "car";
     }
+
+
+    }
+
 }

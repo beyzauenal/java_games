@@ -3,7 +3,7 @@ package at.beyza.games.firstname.test2;
 
 public class Main {
 
-    // dry - dont repeat yoursel
+    // dry - dont repeat yourself
     // open close
     public static void main(String[] args) {
         GUI gui = new GUI2();
