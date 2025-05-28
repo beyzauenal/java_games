@@ -35,5 +35,6 @@ public class Hoerbuecher implements Buch{
 
     public void playSample() {
         System.out.println("Die Musikbücher laufen...");
+
     }
 }

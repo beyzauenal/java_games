@@ -5,4 +5,5 @@ public interface Buch {
     public String getTitel();
     public String getDiscription();
     public int getPrice();
+
 }

@@ -8,7 +8,7 @@ public class GUI1 implements LibraryManager {
     }
 
     @Override
-    public void getCalculateTotalMedia() {
+    public void getCalculateTotalMediaValue() {
         System.out.println("Zähle alle Medien");
     }
 
@@ -20,5 +20,16 @@ public class GUI1 implements LibraryManager {
     @Override
     public void addMedia() {
         System.out.println("Füge Medien hinzu");
+
     }
+
+    public void showallmedia(){
+        System.out.println("Zeige alle medien");
+    }
+
+    public void getCalculaTotalMediaValueInStock(){
+        System.out.println("Zahle alle Medien, im Stock");
+
+    }
+
 }

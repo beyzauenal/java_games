@@ -40,5 +40,6 @@ public class Romane implements Buch{
 
     public String getGenre(){
         return this.genre;
+
     }
 }
