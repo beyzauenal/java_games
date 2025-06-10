@@ -7,3 +7,4 @@ public interface LibraryManager {
     public void addMedia();
 
 }
+

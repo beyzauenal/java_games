@@ -1,18 +1,20 @@
 package at.beyza.games.firstname.PraxisTest;
 
+public class Main {
+    public static void main(String[] args) {
+        GUI1 gui = new GUI1();
 
-import at.beyza.games.firstname.tests.AeroCar;
-import at.beyza.games.firstname.tests.Car;
-import at.beyza.games.firstname.tests.CarDealer;
-import at.beyza.games.firstname.tests.Train;
+        gui.start();
+        gui.addMedia();
+        gui.getAllMedia();
 
-
-    public class Main {
-        public static void main(String[] args) {
-            GUI gui = new GUI2();
-            Romane romane = new Romane(null,1,"Roman1",20,55);
-            Hoerbuecher hoerbuecher = new Hoerbuecher(null,2,"Das Buch1",40);
+        Hoerbuecher hoerbuch = new Hoerbuecher(1, "Hörbuch A", "Beschreibung A", 15);
+        hoerbuch.playSample();
 
 
-        }
+        Romane roman = new Romane(2, "Roman B", "Beschreibung B", 25, "Fantasy");
+        System.out.println("Genre: " + roman.getGenre());
+    }
 }
+
+

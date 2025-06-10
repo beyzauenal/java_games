@@ -12,6 +12,11 @@ public class Car implements Product{
     }
 
     @Override
+    public void drive() {
+
+    }
+
+    @Override
     public String getTitle() {
         return "car";
     }
@@ -19,4 +24,3 @@ public class Car implements Product{
 
     }
 
-}
